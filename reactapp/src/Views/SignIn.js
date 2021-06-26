@@ -5,12 +5,15 @@ import SignInForm from "../Components/SignInForm";
 
 function SignIn() {
   return (
-    <div className="mx-10 h-screen flex flex-col">
+    <div className="mx-4 md:mx-6 lg:mx-10 h-screen flex flex-col">
       <NavBarL />
 
-      <div className="flex items-center justify-between mt-auto">
-        <img src={SignIn_img} className="max-h-35/4h max-w-1/2" />
-        <div className="w-5/12 m-8 flex items-center justify-center border-PColor border-2 rounded-lg">
+      <div className="block lg:flex items-center justify-between lg:mt-auto my-auto">
+        <img
+          src={SignIn_img}
+          className="max-h-35/4h max-w-1/2 hidden lg:block"
+        />
+        <div className="lg:w-5/12 m-8 flex items-center justify-center border-PColor border-2 rounded-lg">
           <SignInForm />
         </div>
       </div>

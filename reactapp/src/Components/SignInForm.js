@@ -3,7 +3,7 @@ import { PButton } from "../Dcomponents/Button";
 
 function SignInForm() {
   return (
-    <div class="flex items-center bg-white w-9/12">
+    <div class="flex items-center bg-white w-11/12 md:w-9/12">
       <div class="container mx-auto">
         <div class="w-full mx-auto my-10">
           <div class="text-center">
@@ -43,7 +43,7 @@ function SignInForm() {
                   class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
                 />
               </div>
-              <div class="mb-6 flex align-center justify-between">
+              <div class="mb-6 flex items-center justify-between">
                 <a
                   href="#!"
                   class="text-sm text-gray-400 focus:outline-none focus:text-indigo-500 hover:text-indigo-500 dark:hover:text-indigo-300"

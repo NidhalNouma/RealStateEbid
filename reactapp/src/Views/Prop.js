@@ -3,7 +3,7 @@ import NavBarL from "../Components/NavBarL";
 
 function Prop() {
   return (
-    <div className="mx-10">
+    <div className="mx-4 md:mx-6 lg:mx-10">
       <NavBarL />
     </div>
   );

@@ -17,3 +17,7 @@ min-height: 100vh;
 display: flex;
 flex-flow: column;
 }
+
+.focInput:focus-within div {
+border-color: #2b2e4a;
+}

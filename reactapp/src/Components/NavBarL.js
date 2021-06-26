@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../Assets/Logo.svg";
 import routes from "../Constant/routes";
@@ -6,6 +6,8 @@ import routes from "../Constant/routes";
 import { Disclosure } from "@headlessui/react";
 import { SearchIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { PLink, HLink } from "../Dcomponents/Links";
+
+import SearchBox from "./SearchBox";
 
 const navigation = [
   { name: "About Us", href: "#", current: false },
@@ -16,7 +18,9 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function NavBarL() {
+function NavBarL({ showSearch = false }) {
+  const [search, setSearch] = useState(false);
+
   return (
     <div className="sticky top-0 z-10">
       <Disclosure as="nav" className="bg-whiteTr">
@@ -25,8 +29,17 @@ function NavBarL() {
             <div className="">
               <div className="relative flex items-center justify-between h-16">
                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                  <Link to={routes.home}>
+                    <div className="flex-shrink-0 flex items-center">
+                      <img
+                        className="block h-8 w-auto"
+                        src={Logo}
+                        alt="Workflow"
+                      />
+                    </div>
+                  </Link>
                   {/* Mobile menu button*/}
-                  <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                  <Disclosure.Button className="ml-2 inline-flex items-center justify-center p-2 rounded-md text-PColor hover:text-TColor focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
                       <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -38,13 +51,13 @@ function NavBarL() {
                 <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                   <Link to={routes.home}>
                     <div className="flex-shrink-0 flex items-center">
-                      <img
+                      {/* <img
                         className="block lg:hidden h-8 w-auto"
                         src={Logo}
                         alt="Workflow"
-                      />
+                      /> */}
                       <img
-                        className="hidden lg:block h-8 w-auto"
+                        className="hidden sm:block h-8 w-auto"
                         src={Logo}
                         alt="Workflow"
                       />
@@ -57,8 +70,8 @@ function NavBarL() {
                           key={item.name}
                           href={item.href}
                           className={classNames(
-                            item.current ? "text-gray-500 " : "text-PColor ",
-                            "px-3 py-2 rounded-md text-sm font-medium hover:text-gray-600"
+                            item.current ? "text-TColor " : "text-PColor ",
+                            "px-3 py-2 rounded-md text-sm font-medium hover:text-TColor"
                           )}
                           aria-current={item.current ? "page" : undefined}
                         >
@@ -69,9 +82,18 @@ function NavBarL() {
                   </div>
                 </div>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                  <SearchIcon className="block h-6 w-6" aria-hidden="true" />
+                  {showSearch && !search && (
+                    <button className="" onClick={() => setSearch(!search)}>
+                      <SearchIcon
+                        className="block h-6 w-6 cursor-pointer"
+                        aria-hidden="true"
+                      />
+                    </button>
+                  )}
                   <div className="mx-2"></div>
-                  <HLink to={routes.getStarted}>Get Started</HLink>
+                  <HLink className="hidden sm:block" to={routes.getStarted}>
+                    Get Started
+                  </HLink>
                   <div className="mx-1"></div>
                   <PLink to={routes.signIn}>Sign In</PLink>
                 </div>
@@ -86,17 +108,25 @@ function NavBarL() {
                     href={item.href}
                     className={classNames(
                       item.current
-                        ? "bg-gray-900 text-white"
-                        : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                      "block px-3 py-2 rounded-md text-base font-medium"
+                        ? "text-TColor"
+                        : "text-PColor hover:text-TColor",
+                      "block px-3 py-1 rounded-md text-base font-medium"
                     )}
                     aria-current={item.current ? "page" : undefined}
                   >
                     {item.name}
                   </a>
                 ))}
+                <div className="py-2"></div>
+                <HLink to={routes.getStarted}>Get Started</HLink>
+                <div className="py-2"></div>
               </div>
             </Disclosure.Panel>
+            {search && (
+              <div className="w-11/12 sm:w-9/12 lg:w-3/6 mx-auto">
+                <SearchBox close={() => setSearch(false)} />
+              </div>
+            )}
           </div>
         )}
       </Disclosure>
