@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 
 import imgHouse from "../Assets/house.jpg";
 
-function CardHome({ p, title, description, img, location, time, bid, to }) {
+function CardHome({ p, time, to }) {
   console.log(p);
+  const img = p.Media ? p.Media[0].MediaURL : null;
   return (
     <div>
       <Link to={to}>
@@ -18,7 +19,7 @@ function CardHome({ p, title, description, img, location, time, bid, to }) {
           <div className="absolute bottom-2 left-1.5 px-3 py-2 bg-AColor rounded-3xl">
             <h6 className="text-white text-sm">
               <span className="font-bold">Time: </span> {time}{" "}
-              <span className="font-bold ml-3">Bid: </span> {p.ClosePrice}
+              <span className="font-bold ml-3">Bid: </span> {p.ListPrice}
             </h6>
           </div>
         </div>
