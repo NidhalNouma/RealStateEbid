@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="59" viewBox="0 0 59 59">
+    <g id="Group_28" data-name="Group 28" transform="translate(-816 -1272)">
+        <text id="Real_Estate" data-name="Real
+Estate" transform="translate(845 1283)" fill="#2b2e4a" font-size="16" font-family="ArialMT, Arial">
+            <tspan x="-12.34" y="0">Real</tspan>
+            <tspan x="-17.01" y="15">Estate</tspan>
+        </text>
+        <text id="Ebid" transform="translate(816 1325)" fill="#e84545" font-size="31" font-family="Arial-BoldMT, Arial"
+            font-weight="700">
+            <tspan x="0" y="0">Ebid</tspan>
+        </text>
+    </g>
+</svg>
