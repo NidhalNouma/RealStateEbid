@@ -36,7 +36,7 @@ function Home() {
               color={"#903749"}
               loading={true}
               // css={override}
-              size={40}
+              size={30}
             />
           </div>
         )}

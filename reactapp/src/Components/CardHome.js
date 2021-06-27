@@ -13,6 +13,7 @@ function CardHome({ p, time, to }) {
         <div className="relative">
           <img
             src={img ? img : imgHouse}
+            onError={(e) => (e.target.src = imgHouse)}
             alt="home Img"
             className="w-full h-64 object-cover"
           />

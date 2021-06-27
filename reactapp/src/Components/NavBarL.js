@@ -4,10 +4,16 @@ import Logo from "../Assets/Logo.svg";
 import routes from "../Constant/routes";
 
 import { Disclosure } from "@headlessui/react";
-import { SearchIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import {
+  SearchIcon,
+  MenuIcon,
+  XIcon,
+  AdjustmentsIcon,
+} from "@heroicons/react/outline";
 import { PLink, HLink } from "../Dcomponents/Links";
 
 import SearchBox from "./SearchBox";
+import Filter from "./Filter";
 
 const navigation = [
   { name: "About Us", href: "#", current: false },
@@ -20,6 +26,7 @@ function classNames(...classes) {
 
 function NavBarL({ showSearch = false }) {
   const [search, setSearch] = useState(false);
+  const [filter, setFilter] = useState(false);
 
   return (
     <div className="sticky top-0 z-10">
@@ -81,14 +88,28 @@ function NavBarL({ showSearch = false }) {
                     </div>
                   </div>
                 </div>
-                <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                  {showSearch && !search && (
-                    <button className="" onClick={() => setSearch(!search)}>
-                      <SearchIcon
-                        className="block h-6 w-6 cursor-pointer"
-                        aria-hidden="true"
-                      />
-                    </button>
+                <div className="absolute inset-y-0 right-0 flex items-center sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                  {showSearch && (
+                    <div>
+                      <button
+                        className="mr-2"
+                        onClick={() => setFilter(!filter)}
+                      >
+                        <AdjustmentsIcon
+                          className="block h-6 w-6 cursor-pointer"
+                          aria-hidden="true"
+                        />
+                      </button>
+                      <button
+                        className={search ? "opacity-0" : "opacity-1"}
+                        onClick={() => setSearch(!search)}
+                      >
+                        <SearchIcon
+                          className="block h-6 w-6 cursor-pointer"
+                          aria-hidden="true"
+                        />
+                      </button>
+                    </div>
                   )}
                   <div className="mx-2"></div>
                   <HLink className="hidden sm:block" to={routes.getStarted}>
@@ -122,6 +143,11 @@ function NavBarL({ showSearch = false }) {
                 <div className="py-2"></div>
               </div>
             </Disclosure.Panel>
+            {filter && (
+              <div className="w-11/12 sm:w-9/12 lg:w-3/6 mx-auto">
+                <Filter close={() => setFilter(false)} />
+              </div>
+            )}
             {search && (
               <div className="w-11/12 sm:w-9/12 lg:w-3/6 mx-auto">
                 <SearchBox close={() => setSearch(false)} />
