@@ -22,11 +22,11 @@ export default Filter;
 function Minmax({ type }) {
   return (
     <div className="mb-2 flex items-end justify-center">
-      <div>
+      <div className="w-5/12 mr-2">
         <h2 className="my-1 font-bold text-PColor">{type}</h2>
-        <TInput className="mr-2" placeholder={`Min ${type}`} type="number" />
+        <TInput className="w-full" placeholder={`Min ${type}`} type="number" />
       </div>
-      <TInput placeholder={`Max ${type}`} type="number" />
+      <TInput className="w-5/12" placeholder={`Max ${type}`} type="number" />
     </div>
   );
 }
