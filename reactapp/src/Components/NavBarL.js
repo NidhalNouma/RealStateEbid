@@ -13,7 +13,8 @@ import {
 import { PLink, HLink } from "../Dcomponents/Links";
 
 import SearchBox from "./SearchBox";
-import Filter from "./Filter";
+// import Filter from "./Filter";
+import FilterP from "./FilterP";
 
 const navigation = [
   { name: "About Us", href: "#", current: false },
@@ -111,7 +112,7 @@ function NavBarL({ showSearch = false }) {
                       </button>
                     </div>
                   )}
-                  <div className="mx-2"></div>
+                  <div className="mx-0 sm:mx-2"></div>
                   <HLink className="hidden sm:block" to={routes.getStarted}>
                     Get Started
                   </HLink>
@@ -145,7 +146,7 @@ function NavBarL({ showSearch = false }) {
             </Disclosure.Panel>
             {filter && (
               <div className="w-11/12 sm:w-9/12 lg:w-3/6 mx-auto">
-                <Filter close={() => setFilter(false)} />
+                <FilterP filter={filter} close={() => setFilter(false)} />
               </div>
             )}
             {search && (
