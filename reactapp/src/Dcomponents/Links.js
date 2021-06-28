@@ -44,3 +44,14 @@ export const TLink = ({ children, className, to, onClick }) => {
     </Link>
   );
 };
+
+export const TextLink = ({ children, className, to, onClick }) => {
+  const Class =
+    className +
+    " text-sm font-medium text-PColor focus:outline-none hover:text-TColor transition-all";
+  return (
+    <Link className={Class} onClick={onClick} to={to}>
+      {children}
+    </Link>
+  );
+};

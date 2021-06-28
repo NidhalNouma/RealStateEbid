@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const URL = "https://api-demo.mlsgrid.com/v2/Property";
-const URL1 =
+// const URL = "https://api-demo.mlsgrid.com/v2/Property";
+const URL =
   "https://api-demo.mlsgrid.com/v2/Property?$filter=OriginatingSystemName%20eq%20%27actris%27%20and%20StandardStatus+eq+Enums.StandardStatus%27Active%27&$expand=Media,PropertyRooms,PropertyUnitTypes";
 const TOKEN = "Bearer 41a797c94788d67990a87056dba42aacd54ca19b";
 
@@ -11,7 +11,7 @@ export const GetAll = function () {
 
   const get = async () => {
     try {
-      const req = await axios.get(URL1, {
+      const req = await axios.get(URL, {
         headers: { Authorization: TOKEN },
         //   params: {
         //     $filter:

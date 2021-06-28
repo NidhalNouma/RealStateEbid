@@ -29,7 +29,7 @@ function SearchBox({ close }) {
             <XIcon
               className={
                 "block h-7 w-7 cursor-pointer hover:text-PColor " +
-                (search.length == 0 ? "text-PColor" : "text-gray-300")
+                (search.length === 0 ? "text-PColor" : "text-gray-300")
               }
               aria-hidden="true"
             />
