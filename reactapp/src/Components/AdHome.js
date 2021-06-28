@@ -15,3 +15,11 @@ export const AdHomeMob = () => {
     </div>
   );
 };
+
+export const AdProp = () => {
+  return (
+    <div className="bg-SColor h-40 w-full mb-6 flex items-center justify-center">
+      <h1 className="font-bold text-lg">AD</h1>
+    </div>
+  );
+};

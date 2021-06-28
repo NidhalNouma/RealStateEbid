@@ -10,10 +10,10 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path={routes.home} exact children={<Home />} />
-        <Route path={routes.signIn} exact children={<SignIn />} />
-        <Route path={routes.getStarted} exact children={<GetStarted />} />
-        <Route path={routes.prop} exact children={<Prop />} />
+        <Route path={routes.home} exact component={Home} />
+        <Route path={routes.signIn} exact component={SignIn} />
+        <Route path={routes.getStarted} exact component={GetStarted} />
+        <Route path={routes.prop} exact component={Prop} />
       </Switch>
     </Router>
   );

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const PLink = ({ children, className, to, onClick }) => {
   const Class =
     className +
-    " px-8 py-2 rounded-3xl text-sm font-medium text-white bg-PColor focus:outline-none border-2 border-PColor transition-all";
+    " px-8 py-2 whitespace-nowrap rounded-3xl text-sm font-medium text-white bg-PColor focus:outline-none border-2 border-PColor transition-all";
   return (
     <Link className={Class} onClick={onClick} to={to}>
       {children}
@@ -15,7 +15,7 @@ export const PLink = ({ children, className, to, onClick }) => {
 export const HLink = ({ children, className, to, onClick }) => {
   const Class =
     className +
-    " px-8 py-2 rounded-3xl text-sm font-medium text-PColor bg-white focus:outline-none border-2 border-PColor transition-all";
+    " px-8 py-2 whitespace-nowrap rounded-3xl text-sm font-medium text-PColor bg-white focus:outline-none border-2 border-PColor transition-all";
   return (
     <Link className={Class} onClick={onClick} to={to}>
       {children}
@@ -26,7 +26,7 @@ export const HLink = ({ children, className, to, onClick }) => {
 export const SLink = ({ children, className, to, onClick }) => {
   const Class =
     className +
-    " px-8 py-2 rounded-3xl text-sm font-medium text-white bg-SColor focus:outline-none border-2 border-SColor transition-all";
+    " px-8 py-2 whitespace-nowrap rounded-3xl text-sm font-medium text-white bg-SColor focus:outline-none border-2 border-SColor transition-all";
   return (
     <Link className={Class} onClick={onClick} to={to}>
       {children}
@@ -37,7 +37,7 @@ export const SLink = ({ children, className, to, onClick }) => {
 export const TLink = ({ children, className, to, onClick }) => {
   const Class =
     className +
-    " px-8 py-2 rounded-3xl text-sm font-medium text-white bg-TColor focus:outline-none border-2 border-TColor transition-all";
+    " px-8 py-2 whitespace-nowrap rounded-3xl text-sm font-medium text-white bg-TColor focus:outline-none border-2 border-TColor transition-all";
   return (
     <Link className={Class} onClick={onClick} to={to}>
       {children}
@@ -48,7 +48,7 @@ export const TLink = ({ children, className, to, onClick }) => {
 export const TextLink = ({ children, className, to, onClick }) => {
   const Class =
     className +
-    " text-sm font-medium text-PColor focus:outline-none hover:text-TColor transition-all";
+    " text-sm font-medium whitespace-nowrap text-PColor focus:outline-none hover:text-TColor transition-all";
   return (
     <Link className={Class} onClick={onClick} to={to}>
       {children}

@@ -23,19 +23,7 @@ function Home() {
                     <AdHomeMob />
                   </div>
                 );
-              return (
-                <CardHome
-                  key={ii}
-                  p={i}
-                  title="Test"
-                  description="Cupidatat aliqua incididunt laboris aliquip enim minim commodo anim et elit esse consectetur irure. Sunt minim dolore sunt aute esse velit sunt nisi in."
-                  location="Locust Valley, NY 11560"
-                  time="6 days"
-                  bid="$130,000.00"
-                  img="https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2019/9/16/0/IO_Tongue-and-Groove_Beech-Street_3.jpg.rend.hgtvcom.616.411.suffix/1568648112267.jpeg"
-                  to="/p/abz"
-                />
-              );
+              return <CardHome key={ii} p={i} />;
             })}
           </div>
         ) : (

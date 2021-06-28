@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 
 import imgHouse from "../Assets/house.jpg";
 
-function CardHome({ p, time, to }) {
-  console.log(p);
+function CardHome({ p, time }) {
+  const id = p["@odata.id"];
+  const path = id ? id.substring(id.lastIndexOf("/") + 1) : "non-available";
+
   const img = p.Media ? p.Media[0].MediaURL : null;
   return (
     <div>
-      <Link to={to}>
+      <Link to={{ pathname: "/p/" + path, p: { p, id: path } }}>
         <div className="relative">
           <img
             src={img ? img : imgHouse}

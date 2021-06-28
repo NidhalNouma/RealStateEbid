@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
 html {
   margin: 0;
   padding: 0;
@@ -9,15 +11,42 @@ html {
 }
 
 body {
-min-height: 100vh;
+  min-height: 100vh;
 }
 
 #root {
-min-height: 100vh;
-display: flex;
-flex-flow: column;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
 }
 
 .focInput:focus-within div {
-border-color: #2b2e4a;
+  border-color: #2b2e4a;
+}
+.image-gallery-content .image-gallery-slide .image-gallery-image {
+  max-height: calc(75vh - 80px);
+}
+.image-gallery-content.fullscreen .image-gallery-slide .image-gallery-image {
+  max-height: calc(100vh - 80px);
+}
+
+.image-gallery-icon {
+  color: #2b2e4a;
+}
+.image-gallery-icon:hover {
+  color: #903749;
+}
+.image-gallery-thumbnail.active,
+.image-gallery-thumbnail:focus {
+  border: 4px solid #2b2e4a;
+}
+.image-gallery-thumbnail:hover {
+  border: 4px solid #2b2e4a;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"],
+input[type="number"] {
+  -webkit-appearance: none;
 }

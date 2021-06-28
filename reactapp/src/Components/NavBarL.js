@@ -30,7 +30,7 @@ function NavBarL({ showSearch = false }) {
   const [filter, setFilter] = useState(false);
 
   return (
-    <div className="sticky top-0 z-10">
+    <div id="navbar" className="sticky top-0 z-20">
       <Disclosure as="nav" className="bg-whiteTr">
         {({ open }) => (
           <div>
