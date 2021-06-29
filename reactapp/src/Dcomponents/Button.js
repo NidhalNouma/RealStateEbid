@@ -44,6 +44,17 @@ export const TButton = ({ children, className, onClick }) => {
   );
 };
 
+export const TextButton = ({ children, className, to, onClick }) => {
+  const Class =
+    className +
+    " text-sm font-medium whitespace-nowrap text-PColor focus:outline-none hover:text-TColor transition-all";
+  return (
+    <button className={Class} onClick={onClick}>
+      {children}
+    </button>
+  );
+};
+
 export const TButtonMin = ({ children, className, onClick }) => {
   const Class =
     className +

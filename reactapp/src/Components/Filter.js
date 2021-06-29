@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { PButton } from "../Dcomponents/Button";
+import { PButton, TextButton } from "../Dcomponents/Button";
 import { TInput } from "../Dcomponents/Input";
 import { Propr, Filters } from "../Hooks/Product";
 
@@ -55,7 +55,18 @@ function Filter({ close, f, setF }) {
             })
           }
         />
-        <div className="flex w-full items-center justify-center pt-2">
+        <div className="flex w-full items-center justify-around pt-2">
+          <TextButton
+            onClick={() =>
+              setF({
+                baths: { min: "", max: "" },
+                beds: { min: "", max: "" },
+                price: { min: "", max: "" },
+              })
+            }
+          >
+            Reset
+          </TextButton>
           <PButton onClick={close}>Done</PButton>
         </div>
       </div>
@@ -75,7 +86,9 @@ function Minmax({ type, m, setMax, setMin }) {
           placeholder={`Min ${type}`}
           type="number"
           value={m.min}
-          onChange={(e) => setMin(e.target.value)}
+          onChange={(e) => {
+            if (checkNumber(e.target.value)) setMin(e.target.value);
+          }}
         />
       </div>
       <TInput
@@ -83,8 +96,16 @@ function Minmax({ type, m, setMax, setMin }) {
         placeholder={`Max ${type}`}
         type="number"
         value={m.max}
-        onChange={(e) => setMax(e.target.value)}
+        onChange={(e) => {
+          if (checkNumber(e.target.value)) setMax(e.target.value);
+        }}
       />
     </div>
   );
+}
+
+function checkNumber(v) {
+  if (v < 0) return false;
+  if (parseInt(v) === NaN) return false;
+  return true;
 }
