@@ -36,7 +36,7 @@ export const SButton = ({ children, className, onClick }) => {
 export const TButton = ({ children, className, onClick }) => {
   const Class =
     className +
-    " px-8 py-2 whitespace-nowrap rounded-3xl text-sm font-medium text-white bg-TColor focus:outline-none border-2 border-TColor transition-all";
+    " px-4 sm:px-8 py-2 whitespace-nowrap rounded-3xl text-sm font-medium text-white bg-TColor focus:outline-none border-2 border-TColor transition-all";
   return (
     <button className={Class} onClick={onClick}>
       {children}

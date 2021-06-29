@@ -24,17 +24,30 @@ body {
   border-color: #2b2e4a;
 }
 .image-gallery-content .image-gallery-slide .image-gallery-image {
-  max-height: calc(75vh - 80px);
+  /* max-height: calc(75vh - 80px); */
+  height: calc(70vh - 80px);
+}
+@media only screen and (max-width:800px) {
+ .image-gallery-content .image-gallery-slide .image-gallery-image {
+   max-height: calc(75vh - 80px);
+   min-height: calc(50vh - 80px);
+  height: auto;
+ }
 }
 .image-gallery-content.fullscreen .image-gallery-slide .image-gallery-image {
+  height: auto;
   max-height: calc(100vh - 80px);
+}
+.image-gallery-content.fullscreen  {
+  z-index: 100;
 }
 
 .image-gallery-icon {
-  color: #2b2e4a;
+  color: white;
 }
 .image-gallery-icon:hover {
-  color: #903749;
+  /* color: #903749; */
+  color: #2b2e4a;
 }
 .image-gallery-thumbnail.active,
 .image-gallery-thumbnail:focus {

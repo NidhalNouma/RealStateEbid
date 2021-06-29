@@ -26,19 +26,17 @@ function Prop(props) {
 
   return (
     <div className="mx-4 md:mx-6 lg:mx-10">
-      <div>
-        <NavBarL />
-      </div>
-      <div className="hidden sm:block py-4 w-full sticky top-0 z-10 bg-whiteTr">
+      <NavBarL />
+      <div className="hidden sm:block py-4 w-full sticky top-16 z-10 bg-whiteTr">
         <Bid time="7 days" price="1,000,000.00" number="14" />
       </div>
       <div className="flex">
         <div>
-          <ImageGallery images={images} className="mt-4" />
+          <ImageGallery images={images} className="mt-4 z-30" />
           <div className="mt-2 mb-4">
             <h1 className="text-PColor font-bold text-lg">House Title</h1>
           </div>
-          <div className="block sm:hidden py-4 w-full sticky top-0 z-10 bg-whiteTr">
+          <div className="block sm:hidden py-4 w-full sticky top-14 z-10 bg-whiteTr">
             <Bid time="7 days" price="1,000,000.00" number="14" />
           </div>
           <AdProp />

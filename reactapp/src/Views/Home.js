@@ -23,7 +23,7 @@ function Home() {
                     <AdHomeMob />
                   </div>
                 );
-              return <CardHome key={ii} p={i} />;
+              return <CardHome key={ii} p={i} time="6 days" />;
             })}
           </div>
         ) : (
