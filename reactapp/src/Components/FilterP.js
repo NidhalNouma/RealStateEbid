@@ -3,17 +3,17 @@ import { Dialog, Transition } from "@headlessui/react";
 
 import Filter from "./Filter";
 
-export default function FilterP({ filter, close }) {
+export default function FilterP({ show, close, f, setF }) {
   const cancelButtonRef = useRef(null);
 
   return (
-    <Transition.Root show={filter} as={Fragment}>
+    <Transition.Root show={show} as={Fragment}>
       <Dialog
         as="div"
         static
-        className="fixed z-10 inset-0 overflow-y-auto"
+        className="fixed z-20 inset-0 overflow-y-auto"
         initialFocus={cancelButtonRef}
-        open={filter}
+        open={show}
         onClose={() => close()}
       >
         <div className="min-h-screen pt-4 px-4 pb-20 text-center block sm:p-0">
@@ -48,7 +48,7 @@ export default function FilterP({ filter, close }) {
             <div className="inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all my-8 align-middle max-w-lg ">
               <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                 <div className="sm:flex sm:items-start">
-                  <Filter close={close} />
+                  <Filter close={close} f={f} setF={setF} />
                 </div>
               </div>
             </div>

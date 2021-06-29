@@ -25,7 +25,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function NavBarL({ showSearch = false }) {
+function NavBarL({ showSearch = false, f, setF }) {
   const [search, setSearch] = useState(false);
   const [filter, setFilter] = useState(false);
 
@@ -146,7 +146,12 @@ function NavBarL({ showSearch = false }) {
             </Disclosure.Panel>
             {filter && (
               <div className="w-11/12 sm:w-9/12 lg:w-3/6 mx-auto">
-                <FilterP filter={filter} close={() => setFilter(false)} />
+                <FilterP
+                  show={filter}
+                  close={() => setFilter(false)}
+                  f={f}
+                  setF={setF}
+                />
               </div>
             )}
             {search && (

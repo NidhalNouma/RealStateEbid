@@ -1,25 +1,35 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import NavBarL from "../Components/NavBarL";
 import CardHome from "../Components/CardHome";
 import { AdHome, AdHomeMob } from "../Components/AdHome";
 import BeatLoader from "react-spinners/BeatLoader";
 
-import { GetAll } from "../Hooks/Product";
+import { GetAll, Propr } from "../Hooks/Product";
 
 function Home() {
-  // const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-  const { p } = GetAll();
+  const p = useContext(Propr);
+  const [f, setF] = useState({
+    baths: { min: "", max: "" },
+    beds: { min: "", max: "" },
+    price: { min: "", max: "" },
+  });
+
+  useEffect(() => {
+    if (p.ap === null) {
+      GetAll(p);
+    }
+  }, []);
 
   return (
     <div className="mx-4 md:mx-6 lg:mx-10">
-      <NavBarL showSearch={true} />
+      <NavBarL showSearch={true} f={f} setF={setF} />
       <div className="mt-6 flex justify-between">
-        {p ? (
+        {p.p ? (
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {p.map((i, ii) => {
-              if (ii % 3 === 0 && ii !== 0)
+            {p.p.map((i, ii) => {
+              if (window.innerWidth < 840 && ii % 3 === 0 && ii !== 0)
                 return (
-                  <div className="block sm:hidden h-64">
+                  <div key={ii} className="block sm:hidden h-64">
                     <AdHomeMob />
                   </div>
                 );

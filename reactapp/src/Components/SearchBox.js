@@ -1,8 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { SearchIcon, XIcon } from "@heroicons/react/outline";
+import { Propr, Search } from "../Hooks/Product";
 
 function SearchBox({ close }) {
+  const p = useContext(Propr);
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    Search(p, search);
+  }, [search]);
+
   return (
     <div className="pb-2 focInput">
       <div className="border-2 border-gray-300 bg-white h-10 px-5 rounded-lg mx-auto flex items-center justify-between">
@@ -25,7 +32,13 @@ function SearchBox({ close }) {
               aria-hidden="true"
             />
           </button>
-          <button className="ml-2" onClick={close}>
+          <button
+            className="ml-2"
+            onClick={() => {
+              p.setP(p.ap);
+              close();
+            }}
+          >
             <XIcon
               className={
                 "block h-7 w-7 cursor-pointer hover:text-PColor " +
