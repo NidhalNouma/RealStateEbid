@@ -34,7 +34,7 @@ function Home() {
                   </div>
                 );
               return <CardHome key={ii} p={i} time="6 days" />;
-            })}
+            }).reverse()}
           </div>
         ) : (
           <div className="mx-auto mt-24">

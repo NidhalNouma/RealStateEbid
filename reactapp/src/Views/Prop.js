@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavBarL from "../Components/NavBarL";
 import ImageGallery from "../Components/ImageGallery";
 import { AdProp, AdHome } from "../Components/AdHome";
 import Table from "../Components/Table";
 import Bid from "../Components/Bid";
 
-const images = [
+const imagest = [
   {
     original: "https://picsum.photos/id/1018/1000/600/",
     thumbnail: "https://picsum.photos/id/1018/250/150/",
@@ -22,7 +22,19 @@ const images = [
 
 function Prop(props) {
   const [p, setP] = useState(props.location ? props.location.p : null);
+  const [images, setImages] = useState([])
   console.log(p);
+
+  useEffect(() => {
+    if (p && p.p.Media) {
+      const imgs = p.p.Media.map(i => {
+        return { origin: i.MediaURL, thumbnail: i.MediaURL }
+      })
+
+      setImages(imgs)
+    }
+  }, []);
+
 
   return (
     <div className="mx-4 md:mx-6 lg:mx-10">
@@ -32,7 +44,7 @@ function Prop(props) {
       </div>
       <div className="flex">
         <div>
-          <ImageGallery images={images} className="mt-4 z-30" />
+          <ImageGallery images={imagest} className="mt-4 z-30" />
           <div className="mt-2 mb-4">
             <h1 className="text-PColor font-bold text-lg">House Title</h1>
           </div>

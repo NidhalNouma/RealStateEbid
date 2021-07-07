@@ -18,6 +18,7 @@ function CardHome({ p, time }) {
             onError={(e) => (e.target.src = imgHouse)}
             alt="home Img"
             className="w-full h-64 object-cover"
+            referrerPolicy="no-referrer"
           />
           <div className="absolute bottom-2 left-1.5 px-3 py-2 bg-AColor rounded-3xl">
             <h6 className="text-white text-sm">
