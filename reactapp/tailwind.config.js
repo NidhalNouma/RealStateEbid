@@ -28,6 +28,7 @@ module.exports = {
       white: colors.white,
       black: colors.black,
       gray: colors.gray,
+      red: colors.red,
       TransColor: "#988f8f",
       whiteTr: "rgba(255,255,255,0.94)",
     },
